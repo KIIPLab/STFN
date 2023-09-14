@@ -1,0 +1,28 @@
+------------ Options -------------
+batch_size: 1
+checkpoints_dir: ./checkpoints/
+ckpt: ./checkpoints
+crop_size: 224
+d_name: PIPAL
+db_path: dataa/PIPAL/Train_images
+ensemble: 5
+flip: False
+gpu_ids: [0]
+is_train: False
+load_epoch: -1
+n_ensemble: 20
+name: test_ahiq_pipal
+num_crop: 1
+num_workers: 8
+patch_size: 8
+resize: False
+seed: 1777
+size: 224
+test_dst_path: dataa/PIPAL/Train_images/val/Dis
+test_file_name: test_results_AHIQ_Label.txt
+test_list: PIPAL_val.txt
+test_mode: True
+test_ref_path: dataa/PIPAL/Train_images/val/Ref
+train_size: 0.8
+txt_file_name: data_list/PIPAL_IQA.txt
+-------------- End ----------------

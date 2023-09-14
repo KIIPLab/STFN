@@ -1,0 +1,2 @@
+[20230831 13:35:06 INFO    ] Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+[20230831 13:35:08 INFO    ] number of test scenes: 871

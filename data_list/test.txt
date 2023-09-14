@@ -1,0 +1,1 @@
+24 1 refimgs/statue.bmp jpeg/img11.bmp 0.482679 480 720
