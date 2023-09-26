@@ -93,7 +93,7 @@ class Test:
             print('there is no trained model. please check the dir. ')
         #####################################################################################################
 
-    # data loader 구성.
+    # data loader 구성. datalist 폴더에 있는 txt 파일을 기반으로 불러옴
     def init_data(self):
 
         if self.opt.d_name == 'LIVE':
@@ -112,7 +112,7 @@ class Test:
             train_mode=False,
             transform=False,
             test_mode = True,
-            resize = False # LIVE일 때는 True
+            resize = True
 
         )
         logging.info('number of test scenes: {}'.format(len(test_dataset)))
@@ -212,7 +212,7 @@ class Test:
                     total_pred = np.append(total_pred, pred_epoch)
                     total_label = np.append(total_label, labels_epoch)
 
-                    print(total_pred)
+                    print('total_pred',total_pred)
 
 
             if self.opt.test_mode == True:
@@ -222,6 +222,7 @@ class Test:
                 rho_s, _ = spearmanr(np.squeeze(total_pred), np.squeeze(total_label))
                 rho_k, _ = kendalltau(np.squeeze(total_pred), np.squeeze(total_label))
                 rho_p, _ = pearsonr(np.squeeze(total_pred), np.squeeze(total_label))
+                print('started')
 
                 line = '{} / SRCC:{:.4} / KRCC:{:.4} / PLCC:{:.4}\n'.format(
                     self.opt.d_name, rho_s, rho_k, rho_p)

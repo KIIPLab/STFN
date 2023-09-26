@@ -54,7 +54,6 @@ class Train:
         self.train()
 
     def create_model(self):
-        """모델을 불러오고 구성하는 함수. backbone에 해당하는 resnet과 vit를 불러오고, 둘을 받는 모델을 load합니다."""
 
         self.swin= timm.create_model('swin_base_patch4_window7_224', pretrained=True).cuda()
         self.patchSplitting1 = patchSplitting(dim=512).cuda() # 3.28에 추가한 거 for merging
@@ -118,15 +117,6 @@ class Train:
             test_mode=False,
         )
 
-        # trainset n배 증가하기
-        ###########################
-        # 대상 : high score models : ex) swin(medi pixel each 2 mish)
-        #train_datasets= [train_dataset] * 2
-
-        #train_dataset =ConcatDataset(train_datasets)
-
-        ##############################################
-
         val_dataset = IQADataset(
             db_path = self.opt.db_path,
             txt_file_name=self.opt.txt_file_name,
@@ -138,7 +128,7 @@ class Train:
             ),
             train_mode=False,
             test_mode = False,
-            resize=False  # LIVE는 data 사이즈가 달라서 수정 필요
+            resize=False  # size가 맞지 않는 경우 True로 변환
         )
 
         """test_dataset = IQADataset(
