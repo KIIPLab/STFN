@@ -28,5 +28,5 @@ method for FR-IQA with smaller training time and model size.*
 
 
 ## Acknowledgment
-The codes borrow heavily from AHIQ implemented by [IIGROUP] https://github.com/IIGROUP/AHIQ and I really appreciate it.
+The codes are modified from AHIQ implemented by [IIGROUP] https://github.com/IIGROUP/AHIQ and I really appreciate it.
 
