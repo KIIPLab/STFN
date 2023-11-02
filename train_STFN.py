@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
 
 from utilss.util import setup_seed,set_logging,SaveOutput
-from script.copy_extract import get_first_feature_swin, get_second_feature_swin,get_third_feature_swin, get_forth_feature_swin
+from script.feature_extract import get_first_feature_swin, get_second_feature_swin,get_third_feature_swin, get_forth_feature_swin
 from options.train_options import TrainOptions
 from model.swin_1_mediator import Pixel_Prediction, patchSplitting, Mediator #, Transformer
 #from model.swin_2_mediator import Pixel_Prediction, patchSplitting, Mediator
@@ -30,7 +30,7 @@ from torch.utils.data import ConcatDataset
 # base_options와 train_options에서 정의한 Argument(Config)가 적용되어 학습을 수행합니다.
 # if you save the log in other directory, please commend the code,'tensorboard --logdir Thedirectory'
 
-log_dir = './runs/train_3/0604'
+log_dir = './runs/train_3/1102'
 
 writer = SummaryWriter(log_dir)
 
