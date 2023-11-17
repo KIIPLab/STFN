@@ -32,7 +32,7 @@ class Test:
 
     # model 생성.  train 때와 동일.
     def create_model(self):
-        """모델을 불러오고 구성하는 함수. backbone에 해당하는 Swin Transformer를 불러오고, patch splitting 및 mediator(residual)을 거칩니다"""
+        """모델을 불러오고 구성하는 함수. backbone에 해당하는 Swin Transformer를 불러오고, reverse patch merging(patch splitting) 및 mediator(residual)을 거칩니다"""
         self.swin = timm.create_model('swin_base_patch4_window7_224', pretrained=True).cuda()
         self.patchSplitting1 = patchSplitting(dim=512).cuda()  # 기본형태. 스윈의 첫번째, 두번째 블록을 사용
         self.mediator1 = Mediator(in_dim=256).cuda()

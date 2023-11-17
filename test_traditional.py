@@ -35,14 +35,14 @@ class Test:
 
     # model 생성.  train 때와 동일.
     def create_model(self):
-        """모델을 불러오고 구성하는 함수. backbone에 해당하는 resnet과 vit를 불러오고, 둘을 받는 모델을 load합니다."""
+        """모델을 불러오고 구성하는 함수. backbone에 해당하는 Swin Transformer를 불러오고, reverse patch merging(patch splitting) 및 mediator(residual)을 거칩니다"""
         self.swin = timm.create_model('swin_base_patch4_window7_224', pretrained=True).cuda()
-        self.patchSplitting1 = patchSplitting(dim=512).cuda()  # 3.28에 추가한 거 for merging
+        self.patchSplitting1 = patchSplitting(dim=512).cuda()
         self.mediator1 = Mediator(in_dim=256).cuda()
         self.regressor = Pixel_Prediction().cuda()
 
     def init_saveoutput(self):
-        """resnet과 vit의 layer 별 결과를 저장시키는 파트"""
+        """사전 학습된 Swin Transformer의 layer 별 결과를 저장하는 파트"""
         self.save_output = SaveOutput()
         hook_handles = []
         for layer in self.swin.modules():
