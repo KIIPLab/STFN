@@ -66,7 +66,7 @@ class Test:
                     checkpoint = torch.load(os.path.join(models_dir, '{}_best.pth'.format(self.opt.d_name)))
                     self.opt.load_epoch = checkpoint['epoch']
                     self.regressor.load_state_dict((checkpoint['regressor_model_state_dict']))
-                    self.patchSplitting1.load_state_dict(checkpoint['patchmerging1_state_dict'])
+                    self.patchSplitting1.load_state_dict(checkpoint['patchSplitting1_state_dict'])
                     self.mediator1.load_state_dict(checkpoint['mediator1_state_dict'])
                     self.start_epoch = checkpoint['epoch'] + 1
                     loss = checkpoint['loss']
@@ -82,7 +82,7 @@ class Test:
                         checkpoint = torch.load(os.path.join(models_dir, "{}_epoch_".format(self.opt.d_name) + str(
                             self.opt.load_epoch) + ".pth"))
                         self.regressor.load_state_dict(checkpoint['regressor_model_state_dict'])
-                        self.patchSplitting1.load_state_dict(checkpoint['patchmerging1_state_dict'])
+                        self.patchSplitting1.load_state_dict(checkpoint['patchSplitting1_state_dict'])
                         self.mediator1.load_state_dict(checkpoint['mediator1_state_dict'])
                         self.start_epoch = checkpoint['epoch'] + 1
                         loss = checkpoint['loss']

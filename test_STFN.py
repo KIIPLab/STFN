@@ -71,7 +71,7 @@ class Test:
                     self.patchSplitting1.load_state_dict(checkpoint['patchSplitting1_state_dict'])
                     #self.patchSplitting2.load_state_dict(checkpoint['patchSplitting2_state_dict'])
                     #self.patchSplitting3.load_state_dict(checkpoint['patchSplitting3_state_dict'])
-                    self.mediator1.load_state_dict(checkpoint['mediator1_state_dict'])
+                    self.mediator1.load_state_dict(checkpoint['mediator1_state_dict']) # Residual Block
                     #self.mediator2.load_state_dict(checkpoint['mediator2_state_dict'])
                     #self.mediator3.load_state_dict(checkpoint['mediator3_state_dict'])
                     self.start_epoch = checkpoint['epoch'] + 1
