@@ -19,7 +19,7 @@ class BaseOptions():
         self._parser.add_argument('--d_name', type=str, default='PIPAL', help='data name for train: PIPAL | KADID | LIVE | CSIQ | TID ')
         self._parser.add_argument('--db_path', type=str, default='dataa/PIPAL/Train_images', help='path to train images : PIPAL | KADID | LIVE | CSIQ | TID in dir')
         self._parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints/', help='models are saved here') # KADID | PIPAL 별로 구분해서 지정하기
-        self._parser.add_argument('--txt_file_name', type=str, default='data_list/PIPAL_test.txt', help='training data list: PIPAL | KADID | LIVE | CSIQ | TID')
+        self._parser.add_argument('--txt_file_name', type=str, default='data_list/PIPAL_IQA.txt', help='training data list: PIPAL | KADID | LIVE | CSIQ | TID')
         self._parser.add_argument('--train_size', type= int, default= 0.8, help= 'train-val ratio') # 이렇게 하면 다양한 데이터에 대해 학습 용이
         # experiment
         self._parser.add_argument('--name', type=str, default='test_ahiq_pipal',

@@ -14,7 +14,7 @@ from torch.utils.data import DataLoader
 from scipy.stats import spearmanr, pearsonr, kendalltau
 
 from utilss.util import setup_seed, set_logging, SaveOutput
-from script.copy_extract import get_first_feature_swin, get_second_feature_swin,get_third_feature_swin,get_forth_feature_swin
+from script.feature_extract import get_first_feature_swin, get_second_feature_swin,get_third_feature_swin,get_forth_feature_swin
 from options.test_options import TestOptions
 from options.train_options import TrainOptions # trainoption의 설정을 사용하는 경우, TestOptions를 비활성화하고 해당 라인을 활성화
 from model.swin_1_mediator import Pixel_Prediction ,patchSplitting , Mediator # 논문의 residual block이 코드에선 mediator
@@ -68,7 +68,7 @@ class Test:
                     checkpoint = torch.load(os.path.join(models_dir, '{}_best.pth'.format(self.opt.d_name)))
                     self.opt.load_epoch = checkpoint['epoch']
                     self.regressor.load_state_dict((checkpoint['regressor_model_state_dict']))
-                    self.patchSplitting1.load_state_dict(checkpoint['patchmerging1_state_dict'])
+                    self.patchSplitting1.load_state_dict(checkpoint['patchSplitting1_state_dict'])
                     #self.patchSplitting2.load_state_dict(checkpoint['patchSplitting2_state_dict'])
                     #self.patchSplitting3.load_state_dict(checkpoint['patchSplitting3_state_dict'])
                     self.mediator1.load_state_dict(checkpoint['mediator1_state_dict'])
@@ -88,7 +88,7 @@ class Test:
                         checkpoint = torch.load(os.path.join(models_dir, "{}_epoch_".format(self.opt.d_name) + str(
                             self.opt.load_epoch) + ".pth"))
                         self.regressor.load_state_dict(checkpoint['regressor_model_state_dict'])
-                        self.patchSplitting1.load_state_dict(checkpoint['patchmerging1_state_dict'])
+                        self.patchSplitting1.load_state_dict(checkpoint['patchSplitting1_state_dict'])
                         #self.patchSplitting2.load_state_dict(checkpoint['patchSplitting2_state_dict'])
                         #self.patchSplitting3.load_state_dict(checkpoint['patchSplitting3_state_dict'])
                         self.mediator1.load_state_dict(checkpoint['mediator1_state_dict'])
